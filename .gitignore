@@ -1,0 +1,24 @@
+x64/
+x86/
+Debug/
+Release/
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+
+.vs/
+
+*.obj
+*.exe
+*.pdb
+*.idb
+*.ilk
+*.pch
+*.tlog
+*.suo
+*.user
+
+*.exp
+
+$RECYCLE.BIN/
+System Volume Information/
