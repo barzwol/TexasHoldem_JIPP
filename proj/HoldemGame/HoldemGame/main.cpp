@@ -1,31 +1,31 @@
 #include <iostream>
 #include "Deck.h"
-
-using namespace std;
+#include "Player.h"
 
 int main() {
     try {
-        cout << "--- TEXAS HOLDEM ---" << endl;
+        std::cout << "--- POKER START ---" << std::endl;
 
-        Deck myDeck;
-        cout << "Karty w talii przed dobieraniem: " << myDeck.cardsLeft() << endl;
+        Deck tableDeck;
+        tableDeck.shuffle();
 
-        cout << "Tasowanie kart..." << endl;
-        myDeck.shuffle();
+        Player player1("gracz", 1000);
 
-        Card firstCard = myDeck.drawCard();
+        player1.receiveCard(tableDeck.drawCard());
+        player1.receiveCard(tableDeck.drawCard());
 
-        cout << "\nTwoja wylosowana karta to: ";
-        firstCard.printCard();
+        player1.printHand();
 
-        cout << "Karty w talii po dobraniu: " << myDeck.cardsLeft() << endl;
+        std::cout << "\ngracz stawia 200$" << std::endl;
+        player1.bet(200);
+
+        std::cout << "Nowy stan konta: " << player1.getBalance() << "$" << std::endl;
 
     }
     catch (const std::exception& e) {
-        cerr << "Wystapil blad: " << e.what() << endl;
+        std::cerr << "Wystapil blad: " << e.what() << std::endl;
     }
 
-    cin.get();
-
+    std::cin.get();
     return 0;
 }

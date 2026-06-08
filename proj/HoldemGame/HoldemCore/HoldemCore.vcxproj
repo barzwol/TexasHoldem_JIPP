@@ -131,11 +131,15 @@ copy /Y "$(SolutionDir)x64\Debug\*.lib" "P:\lib"</Command>
     <ClInclude Include="API.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="Deck.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Table.h" />
     <ClInclude Include="Wallet.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Table.cpp" />
     <ClCompile Include="Wallet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
