@@ -24,10 +24,14 @@ public:
     void receiveCard(const Card& card);
     virtual void printHand() const;
 
+    void saveToFile() const;
+    void loadFromFile();
+
     void win(int amount);
     void resetHand();
     void fold();
     bool hasFolded() const;
 
     std::vector<Card> getHand() const;
+    virtual int makeDecision(int currentBet);
 };

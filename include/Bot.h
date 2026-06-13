@@ -8,4 +8,5 @@ public:
     ~Bot() override;
 
     void printHand() const override;
+    int makeDecision(int currentBet) override;
 };

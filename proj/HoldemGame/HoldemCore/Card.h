@@ -2,14 +2,13 @@
 #include "API.h"
 #include <string>
 
-
 class EXPORT_API Card {
 private:
     int value;
     std::string suit;
 
 public:
-    Card(int val, std::string st);
+    Card(int v, std::string s);
     ~Card();
 
     int getValue() const;
