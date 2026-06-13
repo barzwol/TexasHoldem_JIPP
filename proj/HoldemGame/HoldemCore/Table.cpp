@@ -41,3 +41,6 @@ void Table::printTable() const {
     }
     std::cout << "=========================\n" << std::endl;
 }
+std::vector<Card> Table::getCommunityCards() const {
+    return communityCards;
+}

@@ -18,4 +18,6 @@ public:
     int getPot() const;
     void clearTable();
     void printTable() const;
+
+    std::vector<Card> getCommunityCards() const;
 };

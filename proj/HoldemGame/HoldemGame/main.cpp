@@ -1,31 +1,24 @@
 #include <iostream>
-#include "Deck.h"
+#include <memory>
+#include "Game.h"
 #include "Player.h"
+#include "Bot.h"
 
 int main() {
     try {
-        std::cout << "--- POKER START ---" << std::endl;
+        Game texasHoldem;
 
-        Deck tableDeck;
-        tableDeck.shuffle();
+        texasHoldem.addPlayer(std::make_unique<Player>("gracz", 1000));
+        texasHoldem.addPlayer(std::make_unique<Bot>("bot", 1000));
 
-        Player player1("gracz", 1000);
-
-        player1.receiveCard(tableDeck.drawCard());
-        player1.receiveCard(tableDeck.drawCard());
-
-        player1.printHand();
-
-        std::cout << "\ngracz stawia 200$" << std::endl;
-        player1.bet(200);
-
-        std::cout << "Nowy stan konta: " << player1.getBalance() << "$" << std::endl;
+        texasHoldem.start();
 
     }
     catch (const std::exception& e) {
-        std::cerr << "Wystapil blad: " << e.what() << std::endl;
+        std::cerr << "Wystapil krytyczny blad: " << e.what() << std::endl;
     }
 
+    std::cout << "\nWcisnij Enter, aby zakonczyc...";
     std::cin.get();
     return 0;
 }

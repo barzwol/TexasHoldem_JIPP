@@ -57,3 +57,6 @@ void Player::printHand() const {
     }
     std::cout << " | Stan konta: " << getBalance() << "$" << std::endl;
 }
+std::vector<Card> Player::getHand() const {
+    return hand;
+}

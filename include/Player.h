@@ -1,7 +1,7 @@
 #pragma once
 #include "API.h"
-#include "Card.h"
 #include "Wallet.h"
+#include "Card.h"
 #include <string>
 #include <vector>
 #include <memory>
@@ -9,23 +9,25 @@
 class EXPORT_API Player {
 private:
     std::string name;
-    std::vector<Card> hand;
     std::unique_ptr<Wallet> wallet;
+    std::vector<Card> hand;
     bool isFolded;
 
 public:
     Player(std::string playerName, int startingMoney);
-    ~Player();
+    virtual ~Player();
 
     std::string getName() const;
     int getBalance() const;
-    bool hasFolded() const;
+    void bet(int amount);
 
     void receiveCard(const Card& card);
-    void fold();
-    void resetHand();
-    void bet(int amount);
-    void win(int amount);
+    virtual void printHand() const;
 
-    void printHand() const;
+    void win(int amount);
+    void resetHand();
+    void fold();
+    bool hasFolded() const;
+
+    std::vector<Card> getHand() const;
 };
